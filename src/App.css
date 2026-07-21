@@ -47,6 +47,27 @@
   color: var(--dorado);
 }
 
+.nav-idioma {
+  background: transparent;
+  border: 1px solid var(--linea);
+  border-radius: 40px;
+  color: var(--crema);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 7px 16px;
+  cursor: pointer;
+  transition:
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-idioma:hover {
+  background: var(--crema);
+  color: var(--tinta);
+}
+
 .nav-tel {
   color: var(--dorado);
   border: 1px solid var(--linea);
@@ -661,6 +682,14 @@
     display: none;
   }
 
+  .nav-tel {
+    padding: 11px 16px;
+  }
+
+  .nav-idioma {
+    padding: 11px 14px;
+  }
+
   .nav-apellido {
     font-size: 0.9rem;
     letter-spacing: 0.25em;
@@ -729,7 +758,11 @@
 /* Celulares muy chicos */
 @media (max-width: 420px) {
   .nav {
-    padding: 12px 14px;
+    padding: 10px 10px;
+  }
+
+  .nav-links {
+    gap: 8px;
   }
 
   .nav-script {
@@ -742,7 +775,18 @@
   }
 
   .nav-tel {
-    font-size: 0.8rem;
-    padding: 6px 12px;
+    font-size: 0.75rem;
+    padding: 10px 10px;
+  }
+
+  .nav-idioma {
+    font-size: 0.72rem;
+    padding: 10px 9px;
+  }
+}
+
+@media (max-width: 350px) {
+  .nav-apellido {
+    display: none;
   }
 }
