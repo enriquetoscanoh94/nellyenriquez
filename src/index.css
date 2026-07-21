@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --fondo: #211e1c;
+  --fondo-suave: #2a2624;
+  --crema: #f2efe9;
+  --crema-tenue: #c9c3bb;
+  --acento: #8a3448;
+  --acento-claro: #cf96a2;
+  --acento-oscuro: #6e2938;
+  --dorado: #c9a35c;
+  --linea: rgba(201, 163, 92, 0.35);
+  --tinta: #211e1c;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  background: var(--fondo);
+  color: var(--crema);
+  line-height: 1.7;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Bodoni Moda', serif;
+  font-weight: 500;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
