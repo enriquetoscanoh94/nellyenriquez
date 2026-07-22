@@ -27,7 +27,7 @@ const TEXTOS = {
     heroBtn: '¡Hablemos!',
     heroEnlace: 'Conoce mis servicios',
     retratoTitulo: 'Realtor® · ' + DRE,
-    cinta: ['Compra', 'Venta', 'Inversión', 'Stockton — Modesto — Manteca — Valle Central'],
+    cinta: ['Compra', 'Venta', 'Inversión', 'Sacramento — Stockton — Modesto — Manteca — Valle Central'],
     serviciosTitulo: 'Te ayudo a',
     serviciosScript: ' dar el siguiente paso',
     servicios: [
@@ -80,7 +80,7 @@ const TEXTOS = {
     heroBtn: "Let's talk!",
     heroEnlace: 'See my services',
     retratoTitulo: 'Realtor® · ' + DRE,
-    cinta: ['Buying', 'Selling', 'Investing', 'Stockton — Modesto — Manteca — Central Valley'],
+    cinta: ['Buying', 'Selling', 'Investing', 'Sacramento — Stockton — Modesto — Manteca — Central Valley'],
     serviciosTitulo: 'I help you',
     serviciosScript: ' take the next step',
     servicios: [
