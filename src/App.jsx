@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import nellyFoto from './assets/nelly.jpg'
+import nellyReward from './assets/Nellyreward.PNG'
 
 const TELEFONO = '209-405-5038'
 const SMS = 'sms:+12094055038'
@@ -286,10 +287,17 @@ function App() {
         </div>
 
         <section id="servicios" className="servicios">
-          <h2>
-            {t.serviciosTitulo}
-            <span className="titulo-script">{t.serviciosScript}</span>
-          </h2>
+          <div className="servicios-encabezado">
+            <h2>
+              {t.serviciosTitulo}
+              <span className="titulo-script">{t.serviciosScript}</span>
+            </h2>
+            <img
+              className="nelly-reward"
+              src={nellyReward}
+              alt="Platinum Award 2025"
+            />
+          </div>
           <ul className="servicios-lista">
             {t.servicios.map((s) => (
               <li key={s.titulo}>
