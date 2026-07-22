@@ -260,10 +260,28 @@
   padding: clamp(70px, 12vh, 130px) clamp(20px, 6vw, 72px);
 }
 
-.servicios h2 {
+.servicios-encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
   max-width: 900px;
   margin: 0 auto 60px;
+}
+
+.servicios h2 {
   font-size: clamp(2rem, 4.5vw, 3.4rem);
+}
+
+.nelly-reward {
+  width: 120px;
+  height: 120px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 1px #fff)
+    drop-shadow(0 0 3px rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 7px rgba(255, 255, 255, 0.75));
 }
 
 .titulo-script {
@@ -726,6 +744,17 @@
     grid-template-columns: 1fr;
     gap: 6px;
     padding: 24px 4px;
+  }
+
+  .servicios-encabezado {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .nelly-reward {
+    width: 90px;
+    height: 90px;
   }
 
   .proceso-pasos p {
