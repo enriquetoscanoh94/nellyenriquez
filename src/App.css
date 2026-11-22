@@ -819,3 +819,231 @@
     display: none;
   }
 }
+
+/* ===== Botón Llenar solicitud ===== */
+.btn-solicitud {
+  display: inline-block;
+  background: transparent;
+  color: var(--crema);
+  border: 1px solid var(--dorado);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 15px 36px;
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition:
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-solicitud:hover {
+  background: var(--dorado);
+  color: var(--tinta);
+  transform: translateY(-2px);
+}
+
+.btn-solicitud-contacto {
+  margin-top: 22px;
+}
+
+.btn-solicitud-completa {
+  width: 100%;
+  margin-top: 14px;
+  background: var(--acento);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 50px;
+  letter-spacing: 0.04em;
+  transition:
+    background 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-solicitud-completa:hover {
+  background: var(--acento-oscuro);
+  transform: translateY(-2px);
+}
+
+/* Botón flotante de solicitud */
+.solicitud-flotante {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: var(--acento);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.solicitud-flotante:hover {
+  transform: scale(1.08);
+}
+
+/* ===== Modal Solicitud ===== */
+.solicitud-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(20, 16, 15, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px;
+  overflow-y: auto;
+  animation: aparecer 0.3s ease both;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.solicitud-modal {
+  width: 100%;
+  max-width: 640px;
+  background: var(--crema);
+  color: var(--tinta);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  margin: auto 0;
+}
+
+.solicitud-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  background: #1f3550;
+  color: #fff;
+  padding: 24px 28px;
+}
+
+.solicitud-cabecera h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+}
+
+.solicitud-cabecera p {
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #cdd6e2;
+  letter-spacing: 0.04em;
+}
+
+.solicitud-cerrar {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.solicitud-form {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.solicitud-seccion {
+  color: #1f3550;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  margin-top: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(31, 53, 80, 0.2);
+}
+
+.solicitud-seccion:first-child {
+  margin-top: 0;
+}
+
+.solicitud-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #4a4a4a;
+  letter-spacing: 0.01em;
+}
+
+.solicitud-campo input,
+.solicitud-campo select {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--tinta);
+  padding: 11px 13px;
+  border: 1px solid #c3c3c3;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.solicitud-campo select {
+  cursor: pointer;
+}
+
+.solicitud-campo input:focus,
+.solicitud-campo select:focus {
+  outline: none;
+  border-color: #1f3550;
+  box-shadow: 0 0 0 2px rgba(31, 53, 80, 0.15);
+}
+
+.solicitud-nota {
+  font-size: 0.78rem;
+  color: #8a3448;
+  margin-top: 4px;
+}
+
+.solicitud-botones {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.solicitud-botones .btn-form-wa {
+  flex: 1;
+}
+
+.solicitud-btn-cancelar {
+  background: transparent;
+  border: 1px solid #c3c3c3;
+  color: #4a4a4a;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 14px 24px;
+  border-radius: 50px;
+  transition: background 0.3s ease;
+}
+
+.solicitud-btn-cancelar:hover {
+  background: #ececec;
+}
+
+@media (max-width: 480px) {
+  .solicitud-botones {
+    flex-direction: column-reverse;
+  }
+}

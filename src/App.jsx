@@ -4,6 +4,7 @@ import nellyFoto from './assets/nelly.jpg'
 import nellyReward from './assets/Nellyreward.PNG'
 
 const TELEFONO = '209-405-5038'
+const WHATSAPP = '12094055038'
 const SMS = 'sms:+12094055038'
 const EMAIL = 'nellyenriquezrealtor@gmail.com'
 const DRE = 'DRE #01972958'
@@ -11,6 +12,78 @@ const FACEBOOK = 'https://www.facebook.com/Marelly1024'
 const INSTAGRAM = 'https://www.instagram.com/nellyenriquezrealtor1'
 const YOUTUBE = 'https://www.youtube.com/@nellyenriquez5055'
 const ZILLOW = 'https://www.zillow.com/profile/Enriquez-Nelly#reviews'
+
+const CAMPOS_SOLICITUD = [
+  { seccion: '1. Datos personales / Personal information' },
+  { name: 'nombre', label: 'Nombre legal / Legal first name', required: true },
+  { name: 'apellido', label: 'Apellido legal / Legal last name', required: true },
+  { name: 'segundo', label: 'Segundo nombre (si aplica) / Middle name (if any)' },
+  { name: 'ssn', label: 'Seguro Social / Social Security Number (SSN)' },
+  { name: 'telefono', label: 'Teléfono / Phone number', type: 'tel', required: true },
+  { name: 'email', label: 'Correo electrónico / Email', type: 'email' },
+  { seccion: '2. Historial de domicilios / Residence history' },
+  { name: 'dirActual', label: 'Dirección actual completa / Current full address' },
+  { name: 'desde', label: 'Desde (mes/año) / Since (month/year)' },
+  { name: 'dirAnterior', label: 'Dirección anterior (si menos de 2 años) / Previous address' },
+  { name: 'fechasDir', label: 'Fechas en dirección anterior / Dates at previous address' },
+  { seccion: '3. Trabajo actual / Current employment' },
+  { name: 'empresa', label: 'Empresa / Employer name' },
+  { name: 'empresaDir', label: 'Dirección de empresa / Employer address' },
+  { name: 'puesto', label: 'Puesto / Job title' },
+  { name: 'fechaInicio', label: 'Fecha de inicio (mes/año) / Start date (month/year)' },
+  { name: 'empresaTel', label: 'Teléfono de empresa / Employer phone', type: 'tel' },
+  { seccion: '4. Trabajo anterior / Previous employment' },
+  { name: 'empresaAnt', label: 'Empresa anterior / Previous employer' },
+  { name: 'empresaAntDir', label: 'Dirección de empresa / Previous employer address' },
+  { name: 'puestoAnt', label: 'Puesto / Job title' },
+  { name: 'fechasEmpleo', label: 'Fechas de empleo (mes/año a mes/año) / Employment dates (from/to)' },
+  { name: 'empresaAntTel', label: 'Teléfono de empresa / Employer phone', type: 'tel' },
+  { seccion: '5. Información financiera / Financing & qualification' },
+  {
+    name: 'preaprobado',
+    label: 'Preaprobación de hipoteca / Mortgage pre-approval',
+    type: 'select',
+    opciones: ['Sí / Yes', 'No', 'En proceso / In progress'],
+  },
+  { name: 'presupuesto', label: 'Presupuesto aproximado / Approximate budget' },
+  { name: 'enganche', label: 'Enganche disponible / Down payment available' },
+  {
+    name: 'financiamiento',
+    label: 'Tipo de financiamiento / Loan type',
+    type: 'select',
+    opciones: ['Convencional / Conventional', 'FHA', 'VA', 'USDA', 'Efectivo / Cash'],
+  },
+  { name: 'pagoMensual', label: 'Pago mensual cómodo / Comfortable monthly payment' },
+  {
+    name: 'venderPrimero',
+    label: '¿Vender tu casa actual primero? / Sell current home first?',
+    type: 'select',
+    opciones: ['Sí / Yes', 'No', 'No aplica / N/A'],
+  },
+  {
+    name: 'primeraVez',
+    label: '¿Primera vez comprando casa? / First-time buyer?',
+    type: 'select',
+    opciones: ['Sí / Yes', 'No'],
+  },
+  { seccion: '6. Lo que buscas / What you are looking for' },
+  {
+    name: 'tipoPropiedad',
+    label: 'Tipo de propiedad / Property type',
+    type: 'select',
+    opciones: [
+      'Casa sola / Single-family',
+      'Condominio / Condo',
+      'Townhouse',
+      'Multifamiliar / Multi-family',
+    ],
+  },
+  { name: 'zonas', label: 'Zonas o ciudades de interés / Preferred areas' },
+  { name: 'recamaras', label: 'Recámaras (mínimo) / Bedrooms (min)' },
+  { name: 'banos', label: 'Baños (mínimo) / Bathrooms (min)' },
+  { name: 'mudanza', label: 'Fecha ideal de mudanza / Ideal move-in date' },
+  { name: 'imprescindibles', label: '3 cosas imprescindibles / Top 3 must-haves' },
+]
 
 const TEXTOS = {
   es: {
@@ -64,6 +137,14 @@ const TEXTOS = {
     waInteres: 'Me interesa:',
     waPreset: 'Hola Nelly, me interesa información sobre bienes raíces',
     correoAsunto: 'Contacto desde tu página web',
+    solicitudBtn: 'Llenar solicitud',
+    solicitudCompleta: 'Llenar solicitud completa',
+    solicitudTitulo: 'Solicitud para comprar casa',
+    solicitudSub: 'Home Purchase Intake Form',
+    solicitudNota: '* Por seguridad, comparte tu Seguro Social solo por un medio seguro o directamente con el prestamista.',
+    solicitudEnviar: 'Enviar por WhatsApp',
+    solicitudCorreo: '✉ Enviar por correo',
+    solicitudCerrar: 'Cerrar',
     footer: DRE + ' · Tu agente de confianza en Bienes Raíces',
   },
   en: {
@@ -117,6 +198,14 @@ const TEXTOS = {
     waInteres: "I'm interested in:",
     waPreset: "Hi Nelly, I'd like information about real estate",
     correoAsunto: 'Contact from your website',
+    solicitudBtn: 'Fill out application',
+    solicitudCompleta: 'Fill out full application',
+    solicitudTitulo: 'Home purchase application',
+    solicitudSub: 'Solicitud para comprar casa',
+    solicitudNota: '* For security, share your SSN only through a secure channel or directly with the lender.',
+    solicitudEnviar: 'Send via WhatsApp',
+    solicitudCorreo: '✉ Send by email',
+    solicitudCerrar: 'Close',
     footer: DRE + ' · Your trusted Real Estate agent',
   },
 }
@@ -133,6 +222,14 @@ function IconoSms() {
   return (
     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true">
       <path d="M12 3C6.5 3 2 6.7 2 11.3c0 2.6 1.4 4.9 3.6 6.4-.1.9-.5 2.2-1.5 3.3 0 0 2.4-.3 4.3-1.6.5-.3.8-.5 1-.6.8.2 1.7.3 2.6.3 5.5 0 10-3.7 10-8.3S17.5 3 12 3zM7.5 12.6a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm4.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6zm4.5 0a1.3 1.3 0 1 1 0-2.6 1.3 1.3 0 0 1 0 2.6z" />
+    </svg>
+  )
+}
+
+function IconoDocumento() {
+  return (
+    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 1.5L18.5 8H14V3.5zM8 13h8v1.5H8V13zm0 3h8v1.5H8V16zm0-6h4v1.5H8V10z" />
     </svg>
   )
 }
@@ -191,10 +288,39 @@ function Redes({ whatsapp }) {
   )
 }
 
+// Envía el texto por WhatsApp o por correo según el botón que se presionó.
+function enviarMensaje(canal, texto, asunto) {
+  if (canal === 'whatsapp') {
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank')
+  } else {
+    window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
+      asunto,
+    )}&body=${encodeURIComponent(texto)}`
+  }
+}
+
 function App() {
   const [idioma, setIdioma] = useState('es')
+  const [modalSolicitud, setModalSolicitud] = useState(false)
   const t = TEXTOS[idioma]
-  const whatsapp = `https://wa.me/12094055038?text=${encodeURIComponent(t.waPreset)}`
+  const whatsapp = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(t.waPreset)}`
+
+  function enviarSolicitud(evento) {
+    evento.preventDefault()
+    const datos = new FormData(evento.target)
+    let texto = `*${t.solicitudTitulo.toUpperCase()}*\n`
+    CAMPOS_SOLICITUD.forEach((campo) => {
+      if (campo.seccion) {
+        texto += `\n*${campo.seccion.split(' / ')[0]}*\n`
+      } else {
+        const valor = datos.get(campo.name)
+        if (valor) texto += `${campo.label.split(' / ')[0]}: ${valor}\n`
+      }
+    })
+
+    enviarMensaje(evento.nativeEvent.submitter.value, texto, t.solicitudTitulo)
+    setModalSolicitud(false)
+  }
 
   function enviarFormulario(evento) {
     evento.preventDefault()
@@ -205,16 +331,7 @@ function App() {
       `${t.waInteres} ${datos.get('interes')}\n\n` +
       `${datos.get('mensaje')}`
 
-    if (evento.nativeEvent.submitter.value === 'whatsapp') {
-      window.open(
-        `https://wa.me/12094055038?text=${encodeURIComponent(texto)}`,
-        '_blank',
-      )
-    } else {
-      window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-        t.correoAsunto,
-      )}&body=${encodeURIComponent(texto)}`
-    }
+    enviarMensaje(evento.nativeEvent.submitter.value, texto, t.correoAsunto)
   }
 
   return (
@@ -259,6 +376,13 @@ function App() {
               <a href={`tel:${TELEFONO}`} className="btn-cta">
                 {t.heroBtn}
               </a>
+              <button
+                type="button"
+                className="btn-solicitud"
+                onClick={() => setModalSolicitud(true)}
+              >
+                {t.solicitudBtn}
+              </button>
               <a href="#servicios" className="enlace-dorado">
                 {t.heroEnlace}
               </a>
@@ -344,6 +468,13 @@ function App() {
             <a href={`tel:${TELEFONO}`} className="contacto-tel">
               {TELEFONO}
             </a>
+            <button
+              type="button"
+              className="btn-solicitud btn-solicitud-contacto"
+              onClick={() => setModalSolicitud(true)}
+            >
+              {t.solicitudBtn}
+            </button>
             <div className="contacto-extra">
               <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
               <p>{t.contactoZona}</p>
@@ -381,6 +512,13 @@ function App() {
                 {t.formBtnCorreo}
               </button>
             </div>
+            <button
+              type="button"
+              className="btn-solicitud-completa"
+              onClick={() => setModalSolicitud(true)}
+            >
+              {t.solicitudCompleta}
+            </button>
           </form>
         </section>
       </main>
@@ -392,7 +530,80 @@ function App() {
         <p>{t.footer}</p>
       </footer>
 
+      {modalSolicitud && (
+        <div className="solicitud-overlay" onClick={() => setModalSolicitud(false)}>
+          <div className="solicitud-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="solicitud-cabecera">
+              <div>
+                <h2>{t.solicitudTitulo}</h2>
+                <p>{t.solicitudSub}</p>
+              </div>
+              <button
+                type="button"
+                className="solicitud-cerrar"
+                aria-label={t.solicitudCerrar}
+                onClick={() => setModalSolicitud(false)}
+              >
+                ×
+              </button>
+            </div>
+            <form className="solicitud-form" onSubmit={enviarSolicitud}>
+              {CAMPOS_SOLICITUD.map((campo) => {
+                if (campo.seccion) {
+                  return (
+                    <h3 key={campo.seccion} className="solicitud-seccion">
+                      {campo.seccion}
+                    </h3>
+                  )
+                }
+                if (campo.type === 'select') {
+                  return (
+                    <label key={campo.name} className="solicitud-campo">
+                      {campo.label}
+                      <select name={campo.name} defaultValue="">
+                        <option value="">—</option>
+                        {campo.opciones.map((opcion) => (
+                          <option key={opcion}>{opcion}</option>
+                        ))}
+                      </select>
+                    </label>
+                  )
+                }
+                return (
+                  <label key={campo.name} className="solicitud-campo">
+                    {campo.label}
+                    <input
+                      type={campo.type || 'text'}
+                      name={campo.name}
+                      required={campo.required}
+                    />
+                  </label>
+                )
+              })}
+              <p className="solicitud-nota">{t.solicitudNota}</p>
+              <div className="solicitud-botones">
+                <button type="submit" value="whatsapp" className="btn-form-wa">
+                  <IconoWhatsApp />
+                  {t.solicitudEnviar}
+                </button>
+                <button type="submit" value="correo" className="btn-form-correo">
+                  {t.solicitudCorreo}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       <div className="flotantes">
+        <button
+          type="button"
+          className="solicitud-flotante"
+          aria-label={t.solicitudBtn}
+          onClick={() => setModalSolicitud(true)}
+        >
+          <IconoDocumento />
+        </button>
         <a href={SMS} className="sms-flotante" aria-label="SMS">
           <IconoSms />
         </a>
